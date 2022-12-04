@@ -17,9 +17,9 @@ services:
       - webnet
 
   mongo:
-    image: 'mongo'
+    image: mongo
     ports:
-      - '3306:27017'
+      - '27017:27017'
     networks:
       - webnet
 
@@ -51,16 +51,18 @@ services:
     command: -f /mnt/locust/locustfile.py --worker --master-host master
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
+    image: gcr.io/cadvisor/cadvisor:v0.45.0
     container_name: cadvisor
     ports:
-      - "8088:8088"
+      - "8088:8080"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    privileged: true
 
-  
 networks:
   webnet:
