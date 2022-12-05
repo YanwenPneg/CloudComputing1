@@ -3,3 +3,7 @@ docker pull locustio/locust
 docker pull mongo
 docker pull gcr.io/cadvisor/cadvisor:v0.45.0
 docker pull dockersamples/visualizer
+
+mkdir /mnt/sda1
+mount /dev/sda1 /mnt/sda1
+cd /mnt/sda1
