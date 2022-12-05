@@ -1,0 +1,5 @@
+docker pull clcloudcomputing/javabenchmarkapp
+docker pull locustio/locust 
+docker pull mongo
+docker pull gcr.io/cadvisor/cadvisor:v0.45.0
+docker pull dockersamples/visualizer
