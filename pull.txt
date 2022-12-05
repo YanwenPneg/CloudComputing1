@@ -7,5 +7,5 @@ docker pull dockersamples/visualizer
 mkdir /mnt/sda1
 mount /dev/sda1 /mnt/sda1
 cd /mnt/sda1
-
+du -hs * | sort -h
 sudo apt autoremove
