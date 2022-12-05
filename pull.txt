@@ -9,3 +9,7 @@ mount /dev/sda1 /mnt/sda1
 cd /mnt/sda1
 du -hs * | sort -h
 sudo apt autoremove
+
+docker swarm init 
+docker swarm leave --force
+docker stack deploy -c docker-compose.yml cc
