@@ -15,3 +15,22 @@ docker swarm leave --force
 docker stack deploy -c docker-compose.yml cc
 
 https://github.com/ncl-iot-team/cadvisor-scraper
+
+
+打包
+sudo apt install maven
+
+mvn package
+
+touch Dockerfile
+
+写daocker file
+
+FROM openjdk:8-jdk-alpine
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+
